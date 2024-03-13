@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -34,5 +35,12 @@ class Produit extends Model
     public function appreciation_produit(): BelongsTo
     {
         return $this->belongsTo(Appreciation_produit::class);
+    }
+     /**
+     * (1, N) : One to Many
+     */
+    public function gallerie_produits(): HasMany
+    {
+        return $this->hasMany(Gallerie_produit::class);
     }
 }

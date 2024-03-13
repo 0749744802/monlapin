@@ -16,6 +16,7 @@
 
 
 
+
 @endphp
 
 
@@ -182,8 +183,19 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12">
+                                            <h3>photo</h3>
                                             <img src="{ asset('storage/' . $image_produit) }}" width="100px" alt=""></div>
-                                            <input type="file" name="image_produit" id="input-file-max-fs" multiple class="dropify" data-max-file-size="2M" />
+                                            <input type="file" name="image_produit" id="input-file-max-fs"  class="dropify" data-max-file-size="2M" />
+                                            <div class="invalid-tooltip">
+                                                Please provide a valid city.
+                                            </div>
+                                            <!-- end card -->
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <h3>Gallerie photo</h3>
+                                            <img src="{ asset('storage/' . $image_produit) }}" width="100px" alt=""></div>
+                                            <input type="file" name="image_gallerie[]" id="input-file-max-fs" multiple class="dropify" data-max-file-size="2M" />
                                             <div class="invalid-tooltip">
                                                 Please provide a valid city.
                                             </div>

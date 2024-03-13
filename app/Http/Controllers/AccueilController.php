@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Logiciel;
+use App\Models\Page;
 use App\Models\Service;
 use App\Models\Slide;
 use App\Models\Video;
@@ -25,8 +26,10 @@ class AccueilController extends Controller
 
         // Debug
         // dd($pages);
-        return view('logiciel.pages.accueil', compact( "slides","services","videos","logiciels"));
+        return view('site.pages.accueil', compact( "slides","services","videos","logiciels"));
     }
+
+    
     public function get_accueil(slide $slide)
     {
        // $data = Categorie::get();
@@ -38,6 +41,6 @@ class AccueilController extends Controller
 
         // Debug
         // dd($pages);
-        return view('logiciel.pages.accueil');
+        return view('site.pages.accueil');
     }
 }

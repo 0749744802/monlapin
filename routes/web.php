@@ -20,6 +20,7 @@ use App\Http\Controllers\Store_contactController;
 use App\Http\Controllers\Stotr_devisController;
 use App\Http\Controllers\Store_siteController;
 use App\Http\Controllers\Store_deconnexionController;
+use App\Http\Controllers\Menu_lienController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,19 +40,30 @@ use App\Http\Controllers\Store_deconnexionController;
 //lien accueil
 Route::get('/accueil', [AccueilController::class,'get_slide'])->name('accueil');
 Route::get('/', [AccueilController::class,'get_slide']);
-//lien formulaire devis
-Route::get('/devis', function () {
-    return view('logiciel.formulaire');
-});
-Route::post('/Stotr_devisController', [Stotr_devisController::class,'ajout_deviss'])->name('Stotr_devisController');
+
 //lien services
-   Route::get('/services&id={serviceID}', [Store_serviceController::class,'lien_services'])->name('services');
+   Route::get('/services&id={serviceID}', [Menu_lienController::class,'lien_services'])->name('services');
+
+
+   //lien boutique
+   Route::get('/boutique&id={boutiqueID}', [Menu_lienController::class,'lien_boutique'])->name('boutique');
+
+
+   //lien boutique
+   Route::get('/blog', [Menu_lienController::class,'lien_blog'])->name('blog');
+
+
+   //lien entreprise
+   Route::get('/entreprise&id={entrepriseID}', [Menu_lienController::class,'lien_entreprise'])->name('entreprise');
+
+
+
+
 //lien contact
 Route::get('/contact', function () {
-    return view('logiciel.pages.contact');
+    return view('site.pages.contact');
 });
-//lien logiciel
-Route::get('/logiciels', [Store_logicielController::class,'get_logiciel'])->name('logiciels');
+
 
 
 //lien contact

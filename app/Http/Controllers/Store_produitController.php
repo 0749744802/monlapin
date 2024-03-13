@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appreciation_produit;
 use App\Models\Categorie_produit;
+use App\Models\Gallerie_produit;
 use App\Models\Produit;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class Store_produitController extends Controller
         // dd($request->toArray()); // updateOrCreate
         if (isset($filename))
         {
-            Produit::updateOrCreate(
+            $prduits=Produit::updateOrCreate(
                 ['id'   => $request->produitID],
 
                 [
@@ -47,7 +48,7 @@ class Store_produitController extends Controller
         }
         else
         {
-            Produit::updateOrCreate(
+            $prduits=Produit::updateOrCreate(
                 ['id'   => $request->produitID],
 
                 [
@@ -64,6 +65,39 @@ class Store_produitController extends Controller
                 ]
             );
         }
+
+
+
+
+
+        //galerie image
+
+        if ($request->hasFile("image_gallerie")) {
+            $filename = $request->image_gallerie;
+            foreach ($filename as $image_gallerie) {
+                $filename = $image_gallerie->extension();
+                $filename2 = Str::random(10) . '.' . $filename;
+                $image_gallerie->StoreAs('/public/', $filename2);
+                if (isset($image_gallerie))
+                {
+                    Gallerie_produit::updateOrCreate(
+                        ['id'   => $request->produitID],
+
+                        [
+
+                            'produit_id' => $prduits->id,
+                            'image_gallerie' => $filename2
+                        ]
+                    );
+                }
+          
+            }
+
+        }
+
+
+
+
 
 
         // return
