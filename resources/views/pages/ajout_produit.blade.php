@@ -69,6 +69,10 @@
                                         Ajouter une categorie
                                     </button>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#sous_categorie_page">
+                                        Ajouter une sous categorie
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#categorie_appreciation">
                                     Ajouter une appreciation
                                 </button>
@@ -96,10 +100,10 @@
                                             <div>
                                                 <label for="labelInput" class="form-label">Categorie du produit</label>
                                                 <select class="js-example-basic-single" name="categorie_produit_id">
-                                                    @foreach ($categorie_produit as $item)
+                                                    @foreach ($sous_categorie_produit as $item)
                                                         <option value="{{ $item->id }}"
                                                             {{ $item->id== $categorie_produit_id ? "selected":"" }}>
-                                                            {{ $item->categorie_produit_secondaire }}
+                                                            {{ $item->titre_sous_categorie_produit }}
                                                         </option>
                                                     @endforeach
                                                 </select>

@@ -21,6 +21,7 @@ use App\Http\Controllers\Stotr_devisController;
 use App\Http\Controllers\Store_siteController;
 use App\Http\Controllers\Store_deconnexionController;
 use App\Http\Controllers\Menu_lienController;
+use App\Http\Controllers\Store_sous_categorie_produitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,6 +110,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/liste_service', [Store_serviceController::class,'liste_service'])->name('liste_service');
     Route::post('/store_service', [Store_serviceController::class,'ajout_services'])->name('store_service');
     Route::get('supprimer_service', [Store_serviceController::class,'supprimer_service'])->name('supprimer_service');
+
+
+
+
+    //lien sous categorie produit
+
+
+    Route::post('/Store_sous_categorie_produitController', [Store_sous_categorie_produitController::class,'ajout_sous_categorie_produit'])->name('Store_sous_categorie_produitController');
+    Route::get('supprimer_sous_categorie_produit', [Store_sous_categorie_produitController::class,'supprimer_sous_categorie_produit'])->name('supprimer_sous_categorie_produit');
 
 
     //lien devis

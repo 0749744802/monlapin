@@ -241,19 +241,25 @@ Product Area
             <h2 class="sec-title">Nos produits vivants!</h2>
         </div>
         <div class="filter-menu indicator-active filter-menu-active">
-            <button data-filter="*" class="th-btn tab-btn active" type="button">ALL</button>
-            <button data-filter=".cat1" class="th-btn tab-btn" type="button">Fruits</button>
-            <button data-filter=".cat2" class="th-btn tab-btn" type="button">Vegetable</button>
-            <button data-filter=".cat3" class="th-btn tab-btn" type="button">Meat & Fish</button>
-            <button data-filter=".cat4" class="th-btn tab-btn" type="button">Fruit Juice</button>
-            <button data-filter=".cat5" class="th-btn tab-btn" type="button">Salads</button>
+            <button data-filter="*" class="th-btn tab-btn active" type="button">Touts</button>
+
+            @foreach ($categorie_produits as $item)
+            <button data-filter=".{{ $item->categorie_produit_secondaire }}" class="th-btn tab-btn" type="button">{{ $item->categorie_produit_secondaire }}</button>
+            @endforeach
+
         </div>
         <div class="row gy-4 filter-active">
-            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
+
+
+            @foreach ($produits as $item)
+
+            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item {{ $item->categorie_produit->categorie_produit_secondaire }}">
+
+
                 <div class="th-product product-grid">
                     <div class="product-img">
-                        <img src="monlapin/assets/img/product/product_1_1.jpg" alt="Product Image">
-                        <span class="product-tag">Hot</span>
+                        <img src="{{ asset('storage/' . $item->image_produit) }}" alt="Product Image">
+                        <span class="product-tag">{{ $item->appreciation_produit->titre_appreciation }}</span>
                         <div class="actions">
                             <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
@@ -261,193 +267,22 @@ Product Area
                         </div>
                     </div>
                     <div class="product-content">
-                        <a href="shop-details.html" class="product-category">Fresh Fruits</a>
-                        <h3 class="product-title"><a href="shop-details.html">Bosco Apple Fruit</a></h3>
-                        <span class="price">$177.85</span>
+                        <a href="shop-details.html" class="product-category">{{ $item->categorie_produit->categorie_produit_secondaire }}</a>
+                        <h3 class="product-title"><a href="shop-details.html">{{ $item->titre_produit }}</a></h3>
+                        <span class="price">{{ $item->prix_produit }}<del>$06.99</del></span>
                         <div class="woocommerce-product-rating">
-                            <span class="count">(120 Reviews)</span>
+
                             <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
                                 <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
-            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat5 cat2">
-                <div class="th-product product-grid">
-                    <div class="product-img">
-                        <img src="monlapin/assets/img/product/product_1_2.jpg" alt="Product Image">
-                        <span class="product-tag">New</span>
-                        <div class="actions">
-                            <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a href="shop-details.html" class="product-category">Vegetables</a>
-                        <h3 class="product-title"><a href="shop-details.html">Green Cauliflower</a></h3>
-                        <span class="price">$39.85</span>
-                        <div class="woocommerce-product-rating">
-                            <span class="count">(120 Reviews)</span>
-                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat1 cat4">
-                <div class="th-product product-grid">
-                    <div class="product-img">
-                        <img src="monlapin/assets/img/product/product_1_3.jpg" alt="Product Image">
-                        <span class="product-tag">Hot</span>
-                        <div class="actions">
-                            <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a href="shop-details.html" class="product-category">Fresh Fruits</a>
-                        <h3 class="product-title"><a href="shop-details.html">Mandarin orange</a></h3>
-                        <span class="price">$96.85</span>
-                        <div class="woocommerce-product-rating">
-                            <span class="count">(120 Reviews)</span>
-                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat2 cat5">
-                <div class="th-product product-grid">
-                    <div class="product-img">
-                        <img src="monlapin/assets/img/product/product_1_4.jpg" alt="Product Image">
-                        <span class="product-tag">Sale</span>
-                        <div class="actions">
-                            <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a href="shop-details.html" class="product-category">Vegetables</a>
-                        <h3 class="product-title"><a href="shop-details.html">Shallot Red onion</a></h3>
-                        <span class="price">$08.85<del>$06.99</del></span>
-                        <div class="woocommerce-product-rating">
-                            <span class="count">(120 Reviews)</span>
-                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3 cat1">
-                <div class="th-product product-grid">
-                    <div class="product-img">
-                        <img src="monlapin/assets/img/product/product_1_5.jpg" alt="Product Image">
-                        <span class="product-tag">New</span>
-                        <div class="actions">
-                            <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a href="shop-details.html" class="product-category">Fresh Fruits</a>
-                        <h3 class="product-title"><a href="shop-details.html">Sour Red Cherry</a></h3>
-                        <span class="price">$32.85</span>
-                        <div class="woocommerce-product-rating">
-                            <span class="count">(120 Reviews)</span>
-                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat5 cat4 cat1 cat2">
-                <div class="th-product product-grid">
-                    <div class="product-img">
-                        <img src="monlapin/assets/img/product/product_1_6.jpg" alt="Product Image">
-                        <span class="product-tag">Hot</span>
-                        <div class="actions">
-                            <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a href="shop-details.html" class="product-category">Fresh Fruits</a>
-                        <h3 class="product-title"><a href="shop-details.html">Strawberry Fruits</a></h3>
-                        <span class="price">$30.85</span>
-                        <div class="woocommerce-product-rating">
-                            <span class="count">(120 Reviews)</span>
-                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat2 cat1 cat4 cat5">
-                <div class="th-product product-grid">
-                    <div class="product-img">
-                        <img src="monlapin/assets/img/product/product_1_7.jpg" alt="Product Image">
-                        <span class="product-tag">New</span>
-                        <div class="actions">
-                            <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a href="shop-details.html" class="product-category">Fresh Fruits</a>
-                        <h3 class="product-title"><a href="shop-details.html">Six Ripe Banana</a></h3>
-                        <span class="price">$232.85</span>
-                        <div class="woocommerce-product-rating">
-                            <span class="count">(120 Reviews)</span>
-                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 filter-item cat3">
-                <div class="th-product product-grid">
-                    <div class="product-img">
-                        <img src="monlapin/assets/img/product/product_1_8.jpg" alt="Product Image">
-                        <span class="product-tag">Hot</span>
-                        <div class="actions">
-                            <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
-                            <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a href="shop-details.html" class="product-category">Fresh Fruits</a>
-                        <h3 class="product-title"><a href="shop-details.html">Sausage Ribs Beef</a></h3>
-                        <span class="price">$30.85</span>
-                        <div class="woocommerce-product-rating">
-                            <span class="count">(120 Reviews)</span>
-                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                <span>Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>

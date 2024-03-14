@@ -11,7 +11,6 @@ class Categorie_produit extends Model
 {
     use HasFactory,SoftDeletes;
     protected $fillable=[
-        "categorie_produit_principale",
         "categorie_produit_secondaire"
     ];
 
@@ -23,4 +22,10 @@ class Categorie_produit extends Model
     {
         return $this->hasMany(Produit::class);
     }
+    public function sous_categorie_produits(): HasMany
+    {
+        return $this->hasMany(Sous_categorie_produit::class);
+    }
+
+
 }

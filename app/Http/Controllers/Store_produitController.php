@@ -90,7 +90,7 @@ class Store_produitController extends Controller
                         ]
                     );
                 }
-          
+
             }
 
         }

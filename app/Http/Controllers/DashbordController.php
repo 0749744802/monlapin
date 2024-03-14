@@ -8,6 +8,7 @@ use App\Models\Produit;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use App\Models\Categorie_produit;
+use App\Models\Sous_categorie_produit;
 
 class DashbordController extends Controller
 {
@@ -29,9 +30,10 @@ class DashbordController extends Controller
     {
         $appreciation_produit = Appreciation_produit::get();
         $categorie_produit = Categorie_produit::get();
+        $sous_categorie_produit = Sous_categorie_produit::get();
           //recherche du produit
           $produit = Produit::find($produitID);
-        return view('pages.ajout_produit',compact("appreciation_produit","produit","categorie_produit"));
+        return view('pages.ajout_produit',compact("appreciation_produit","produit","categorie_produit","sous_categorie_produit"));
     }
 
 

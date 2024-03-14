@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categorie_produits', function (Blueprint $table) {
+        Schema::create('sous_categorie_produits', function (Blueprint $table) {
             $table->id();
-            $table->string("categorie_produit_secondaire")->nullable();
+             // migration de cle etranger
+             $table->unsignedBigInteger('categorie_produit_id');
+             $table->foreign('categorie_produit_id')->references('id')->on('categorie_produits');
+             $table->string("titre_sous_categorie_produit")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorie_produits');
+        Schema::dropIfExists('sous_categorie_produits');
     }
 };

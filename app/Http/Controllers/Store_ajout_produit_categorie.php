@@ -16,7 +16,7 @@ class Store_ajout_produit_categorie extends Controller
 
             [
                 //'id'   => $request->categorie_produit_ID,
-                'categorie_produit_principale' => $request->categorie_produit_principale,
+               
                 'categorie_produit_secondaire' => $request->categorie_produit_secondaire
 
             ]);
