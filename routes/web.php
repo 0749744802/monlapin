@@ -1,27 +1,29 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\StoresController;
-use App\Http\Controllers\DashbordController;
-use App\Http\Controllers\Store_ajout_produit_categorie;
-use App\Http\Controllers\Store_appreciation;
-use App\Http\Controllers\Store_produitController;
-use App\Http\Controllers\Store_slideController;
-use App\Http\Controllers\Store_serviceController;
-use App\Http\Controllers\Store_blogController;
-use App\Http\Controllers\Store_membreController;
-use App\Http\Controllers\Store_menuController;
 use App\Http\Controllers\AccueilController;
-use App\Http\Controllers\Store_videoController;
-use App\Http\Controllers\Store_logicielController;
-use App\Http\Controllers\Store_contactController;
-use App\Http\Controllers\Stotr_devisController;
-use App\Http\Controllers\Store_siteController;
-use App\Http\Controllers\Store_deconnexionController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashbordController;
+use App\Http\Controllers\Store_appreciation;
 use App\Http\Controllers\Menu_lienController;
+use App\Http\Controllers\Store_blogController;
+use App\Http\Controllers\Store_menuController;
+use App\Http\Controllers\Store_siteController;
+use App\Http\Controllers\Store_slideController;
+use App\Http\Controllers\Store_videoController;
+use App\Http\Controllers\Stotr_devisController;
+use App\Http\Controllers\Store_membreController;
+use App\Http\Controllers\Store_contactController;
+use App\Http\Controllers\Store_produitController;
+use App\Http\Controllers\Store_serviceController;
+use App\Http\Controllers\Store_logicielController;
+use App\Http\Controllers\Store_deconnexionController;
+use App\Http\Controllers\Store_ajout_produit_categorie;
 use App\Http\Controllers\Store_sous_categorie_produitController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +59,12 @@ Route::get('/', [AccueilController::class,'get_slide']);
    //lien entreprise
    Route::get('/entreprise&id={entrepriseID}', [Menu_lienController::class,'lien_entreprise'])->name('entreprise');
 
+
+   //lien ajout de panier
+   Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::get('/cart/add', [CartController::class,'addToCart'])->name('cart.add');
+Route::get('/cart/update', [CartController::class,'updateCart'])->name('cart.update');
+Route::get('/cart/remove', [CartController::class,'removeFromCart'])->name('cart.remove');
 
 
 

@@ -29,6 +29,6 @@ class Menu_lienController extends Controller
     public function lien_blog()
     {
         $blog = blog::get();
-        return view('site.pages.blog',compact("blog"));
+        return view('site.pages.blogm',compact("blog"));
     }
 }

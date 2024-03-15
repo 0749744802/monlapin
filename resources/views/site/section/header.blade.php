@@ -96,7 +96,9 @@
                             <div class="header-button">
                                 <button type="button" class="simple-icon searchBoxToggler"><i class="far fa-search"></i></button>
                                 <button type="button" class="simple-icon sideMenuToggler">
-                                    <span class="badge">5</span>
+                                    <span class="badge">
+                                        {{ count(Cart::content()) }}
+                                    </span>
                                     <i class="fa-regular fa-cart-shopping"></i>
                                 </button>
                                 <a href="shop.html" class="th-btn style4">Shop Now<i class="fas fa-chevrons-right ms-2"></i></a>

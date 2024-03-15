@@ -1,6 +1,9 @@
 @extends('site.index')
 @section('titre', 'Accueil')
 @section('content')
+
+
+
 <div class="th-hero-wrapper hero-1" id="hero" data-bg-src="monlapin/assets/img/hero/hero_bg_1_2.jpg">
     <div class="swiper th-slider" id="heroSlide1" data-slider-options='{"effect":"fade"}'>
         <div class="swiper-wrapper">
@@ -251,25 +254,26 @@ Product Area
         <div class="row gy-4 filter-active">
 
 
-            @foreach ($produits as $item)
+            @foreach ($produits as  $item)
 
             <div class="col-xl-3 col-lg-4 col-sm-6 filter-item {{ $item->categorie_produit->categorie_produit_secondaire }}">
 
 
-                <div class="th-product product-grid">
+                <div class="th-product product-grid ">
                     <div class="product-img">
                         <img src="{{ asset('storage/' . $item->image_produit) }}" alt="Product Image">
                         <span class="product-tag">{{ $item->appreciation_produit->titre_appreciation }}</span>
                         <div class="actions">
                             <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+
+                        <button href="#" class="icon-btn add-to-cart" data-product-id="{{ $item->id }}"><i class="far fa-cart-plus"></i></button>
                             <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
                         </div>
                     </div>
                     <div class="product-content">
                         <a href="shop-details.html" class="product-category">{{ $item->categorie_produit->categorie_produit_secondaire }}</a>
                         <h3 class="product-title"><a href="shop-details.html">{{ $item->titre_produit }}</a></h3>
-                        <span class="price">{{ $item->prix_produit }}<del>$06.99</del></span>
+                        <span class="price">{{ $item->prix_produit }}<del>{{ $item->id }}</del></span>
                         <div class="woocommerce-product-rating">
 
                             <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
@@ -418,7 +422,7 @@ Deal Area
                         <img src="monlapin/assets/img/product/deal_card_1.jpg" alt="Product Image">
                         <div class="actions">
                             <a href="#QuickView" class="icon-btn popup-content"><i class="far fa-eye"></i></a>
-                            <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                            <a href="cart.html" class="icon-btn "><i class="far fa-cart-plus"></i></a>
                             <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
                         </div>
                     </div>
