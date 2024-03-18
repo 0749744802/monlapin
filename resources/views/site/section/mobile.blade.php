@@ -2,7 +2,7 @@
 <div class="sidemenu-wrapper sidemenu-cart d-none d-lg-block ">
     <div class="sidemenu-content">
         <button class="closeButton sideMenuCls"><i class="far fa-times"></i></button>
-        <div class="widget woocommerce widget_shopping_cart">
+        <div class="widget woocommerce widget_shopping_cart" id="carts">
             <h3 class="widget_title">Panier</h3>
             <div class="widget_shopping_cart_content">
                 <ul class="woocommerce-mini-cart cart_list product_list_widget ">
@@ -17,8 +17,8 @@
 
 
                     <li id="test" class="woocommerce-mini-cart-item mini_cart_item row_produit_{{ $item->rowId }}">
-                        <button class="remove remove_from_cart_button remove-from-cart" data-row-id="{{ $item->rowId }}"><i class="far fa-times"></i></button>
-                        <a href="#"><img src="monlapin/assets/img/product/product_thumb_1_1.jpg" alt="Cart Image">{{ $item->name  }}</a>
+                        <a class="remove remove_from_cart_button remove-from-cart " data-row-id="{{ $item->rowId }}" ><i class="far fa-times"></i></a>
+                        <a href="#"><img src="{{ asset('storage/' . $item->options->image) }}" alt="Cart Image">{{ $item->name  }}</a>
                         <span class="quantity">{{ $item->qty }} ×
                             <span class="woocommerce-Price-amount amount">
                                 <span class="woocommerce-Price-currencySymbol">FCFA</span>{{ $item->price }}</span>
@@ -32,7 +32,7 @@
                         <span class="woocommerce-Price-currencySymbol">$</span>{{ $total }}</span>
                 </p>
                 <p class="woocommerce-mini-cart__buttons buttons">
-                    <a href="cart.html" class="th-btn wc-forward">View cart</a>
+                    <a href="cart" class="th-btn wc-forward">Voir panier</a>
                     <a href="checkout.html" class="th-btn checkout wc-forward">Checkout</a>
                 </p>
             </div>

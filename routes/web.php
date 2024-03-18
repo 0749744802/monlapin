@@ -61,7 +61,7 @@ Route::get('/', [AccueilController::class,'get_slide']);
 
 
    //lien ajout de panier
-   Route::get('/cart', 'CartController@index')->name('cart.index');
+   Route::get('/cart',  [CartController::class,'index'])->name('cart.index');
 Route::get('/cart/add', [CartController::class,'addToCart'])->name('cart.add');
 Route::get('/cart/update', [CartController::class,'updateCart'])->name('cart.update');
 Route::get('/cart/remove', [CartController::class,'removeFromCart'])->name('cart.remove');
